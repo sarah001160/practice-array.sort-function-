@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"><!--BS4-->
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="all.css">
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.common.dev.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.common.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/core.js'></script>
+</head>
+<style>
+.table th.click {
+  cursor: pointer;
+}
+
+.table th.click {
+  cursor: pointer;
+}
+
+.icon {
+  display: inline-block;
+}
+.icon.inverse {
+  transform:rotate(180deg)
+}
+
+
+</style>
+<body>
+
+ <div id="app">
+    <div class="container">
+ 
+        <div id="app"> 
+          <table class="table">
+            <thead>
+              <tr>
+                <th>品名</th>
+                <th class="click" @click="sort('price'),isReverse=!isReverse">價格<!--點擊時觸發sort('price');參數為物件的price-->
+                  <span class="icon" :class="{inverse:isReverse}" v-if="sortData=='price'"><!--當sortData等於price時才會顯示箭頭的icon-->
+                    <i class=" fas fa-angle-up text-success"></i>
+                  </span>
+                </th>
+                <th class="click" @click="sort('expiryDate'), isReverse=!isReverse">到期日
+                  <span class="icon" :class="{inverse:isReverse}" v-if="sortData=='expiryDate'"> <!--當sortData等於expiryDate時才會顯示箭頭的icon-->
+                    <i class=" fas fa-angle-up text-success"></i>    
+                </th>
+              </tr>
+              <tr v-for="item in filterArray" :key="item.name">
+                <td>{{ item.name }}</td><!--使用花括號顯示資料-->
+                <td>{{ item.price }}</td>
+                <td>{{ item.expiryDate }}</td>
+              </tr>
+            </thead>
+          </table>
+
+
+
+          <table>
+            <thead>
+              <tr>
+                <th>品茗</th>
+                <th>價格</th>
+                <th>到期日</th>
+              </tr>
+                
+            </thead>
+
+          </table>
+        </div>
+        
+          </div>
+        </div>
+
+
+ </div>
+
+<script>
+
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    data: [
+     { name: '金殺 巧粒粒',
+        price: 120,
+        expiryDate: 200
+      },
+      {
+        name:'123',
+        price:'123',
+        expiryDate:200
+      }
+    ],
+    isReverse:false,
+    sortData:''
+  },
+  computed:{
+    filterArray:function(){
+      let vm = this;
+      let newData = vm.data.sort(function(a,b){
+        a=a[vm.sortData]
+        b=b[vm.sortData]
+        if(vm.isReverse){
+          a-b
+        }else{
+          b-a
+        }
+      })
+      return newData
+    }
+  
+  },
+  methods:{
+    sort:function(value){
+      this.sortData = value;
+      console.log(sortData);
+    }
+ 
+  }
+  });
+
+
+
+</script>
+
+</body>
+</html>

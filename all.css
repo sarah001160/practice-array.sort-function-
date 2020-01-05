@@ -1,0 +1,121 @@
+body,html{
+    width:1270px;
+    margin:0;
+    text-align:left;
+    box-sizing:border-box;
+}
+
+#app{
+    width:100%;
+    margin:0 auto;   
+}
+
+#testComponent{
+height:100px;
+background-color:yellow;
+}
+
+.bgcolor{
+    background:red;
+    
+
+}
+
+/*----notebooks setting css----*/
+h1{
+    font-weight:bold;
+    margin-left:100px;
+    margin-top:20px;
+}
+li{
+    display:block;
+    width:100%;
+    box-sizing:border-box;
+}
+
+.addNotes{
+    width:780px;
+    height:50px;
+    padding-left:20px;
+    margin-top:20px;
+    margin-left:100px;
+    margin-bottom:20px;
+}
+.show{
+    width:100%;
+    box-sizing:border-box;
+    margin-left:100px;
+    margin-top:20px;
+    padding:10px;
+}
+.show li{
+    margin-top:20px;
+}
+
+.tab ul{
+    width:500px;
+    margin-left:100px;
+}
+.tab li{
+    width:200px;
+    height:40px;
+    margin-left:100px;
+
+}
+a .active{
+background-color:red;
+}
+
+
+/*--slot.html----*/
+
+.box2{
+    margin-top:30px;
+    border:1px solid yellow;
+    margin-bottom:30px;
+}
+
+
+/*---------for html5 practice---------*/
+header{
+    height:150px;
+    background:blue;
+    color:white;
+    text-align:center;
+    font-size:30px;
+}
+nav{
+    height:100px;
+    background:yellow;
+}
+aside{
+    height:150px;
+    width:300px;
+    background:pink;
+}
+.addin{
+    background:yellow;
+}
+.circle{
+    width:100%;
+    height:auto;
+    background:purple;
+    transition:2s;
+   animation-name:colorbox;
+   animation-duration:4s;/*完成動畫的循環為4秒鐘*/
+   animation-iteration-count:infinite;/*不停地撥放動畫*/
+  
+}
+.circle:hover{
+    transform:skewX(10deg);
+    
+}
+
+@keyframes colorbox{
+    0% {background-color:purple;}
+    50% {background-color:pink;}
+    75%{background-color:green;}
+    100%{background-color:blue;}
+}
+
+/*滾動視差jQuery套件作者的github:https://github.com/pixelcog/parallax.js/  */
